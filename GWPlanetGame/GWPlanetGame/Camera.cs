@@ -123,7 +123,7 @@ namespace GWPlanetGame
         /// Property to get and set the camera's position as
         /// an (X,Y) coordinate pair represented by a Vector2.
         /// </summary>
-        public Vector2 Point
+        public Vector2 Position
         {
             get { return mapPoint; }
             set { mapPoint = value; }
