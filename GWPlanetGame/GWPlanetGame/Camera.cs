@@ -120,6 +120,16 @@ namespace GWPlanetGame
         }
 
         /// <summary>
+        /// Property to get and set the camera's position as
+        /// an (X,Y) coordinate pair represented by a Vector2.
+        /// </summary>
+        public Vector2 Point
+        {
+            get { return mapPoint; }
+            set { mapPoint = value; }
+        }
+
+        /// <summary>
         /// Property to get and set the camera's midpoint as a Vector
         /// representing its (X,Y) coordinate pair. Intended to be a 
         /// quick way to have the camera 'look' at an object (like the player.)
