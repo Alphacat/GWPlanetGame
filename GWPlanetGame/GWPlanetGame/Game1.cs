@@ -40,8 +40,9 @@ namespace GWPlanetGame
             map.MapFillRandom();
             //map.MapFillPattern1();
 
-            camera = new Camera(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
-            camera.SetPoint(10, 10);
+            // Initialize camera
+            camera = new Camera(this);
+            camera.Point = new Vector2(10, 10);
             base.Initialize();
         }
 
@@ -102,12 +103,16 @@ namespace GWPlanetGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Red);
 
             // TODO: Add your drawing code here
             // Draw the sprite
-            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
-            map.DrawView(spriteBatch, myTexture, camera, new Point(0, 0));
+            
+            // Initialize the spriteBatch with our camera transform
+            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, null, null, null, null, camera.Transform);
+
+            // Pass the spritebatch and have it draw the terrain
+            map.DrawView(spriteBatch, myTexture);
             //spriteBatch.Draw(myTexture, new Rectangle(35, 35, 2, 2), new Rectangle(20, 0, 40, 20), Color.White);
             //spriteBatch.Draw(myTexture, new Rectangle(36, 36, 200, 50), Color.White);
             spriteBatch.End();
