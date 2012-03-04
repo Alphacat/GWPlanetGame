@@ -74,7 +74,8 @@ namespace GWPlanetGame
 
         #region Properties
         /// <summary>
-        /// Property to get and set the camera width manually.
+        /// Property to get and set the camera width manually. 
+        /// TODO: Has no effect on actual screen size.
         /// </summary>
         public float Width
         {            
@@ -84,6 +85,7 @@ namespace GWPlanetGame
 
         /// <summary>
         /// Property to get and set the camera height manually.
+        /// TODO: Has no effect on actul screen size.
         /// </summary>
         public float Height
         {
@@ -94,6 +96,7 @@ namespace GWPlanetGame
         /// <summary>
         /// Property to get and set the camera size manually, represented as
         /// an (X,Y) coordinate pair by a Vector2.
+        /// TODO: Has no effect on actual screen size.
         /// </summary>
         public Vector2 ScreenSize
         {
