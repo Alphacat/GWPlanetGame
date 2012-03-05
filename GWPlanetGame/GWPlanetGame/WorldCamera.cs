@@ -36,7 +36,7 @@ namespace GWPlanetGame
         /// the center of the screen, instead of the upper-left
         /// corner.
         /// </summary>
-        private override void UpdateMatrix()
+        protected override void UpdateMatrix()
         {
             _matrixtransform = Matrix.CreateTranslation(new Vector3(-X, -Y, 0)) *
                 Matrix.CreateScale(new Vector3(_zoom, _zoom, 0)) *
