@@ -65,7 +65,7 @@ namespace GWPlanetGame
         /// any time the camera's position or zoom factor is altered.
         /// TODO: Make this respond to window size events.
         /// </summary>
-        private virtual void UpdateMatrix()
+        protected virtual void UpdateMatrix()
         {
             _matrixtransform = Matrix.Identity;
         }
