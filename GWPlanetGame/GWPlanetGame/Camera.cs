@@ -1,17 +1,17 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace GWPlanetGame
 {
     /// <summary>
-    /// Camera class for the game. The camera coordinates
-    /// represent the center point that the camera is focued
-    /// on.
+    /// Camera class for the game. Has an overrideable method to
+    /// control the matrix calculation the game uses for SpriteBatches.
     /// </summary>
     class Camera
     {
-        // Reference to the current game instance
-        private Game _game;
+        // Reference to the current game's graphic device
+        private GraphicsDevice _graphicsDevice;
 
         // Camera's position
         private Vector2 _point;
@@ -27,9 +27,9 @@ namespace GWPlanetGame
         /// Constructor for our camera class.
         /// </summary>
         /// <param name="game"></param>
-        public Camera( Game game )
+        public Camera( GraphicsDevice graphicsDevice )
         {
-            _game = game;
+            _graphicsDevice = graphicsDevice;
             _point = new Vector2( 0.0f, 0.0f );
             _zoom = 1.0f;
 
@@ -43,17 +43,20 @@ namespace GWPlanetGame
         /// and size smoothed out to integer values. This is to
         /// assist in grabbing textures, which SpriteBatch wants in
         /// whole pixel amounts.
+        /// Override this if you modify your Matrix to
+        /// orient the camera differently.
+        /// TODO: See if there's a way to calculate this automatically based on the matrix transform.
         /// </summary>
         /// <returns>A rectangle representing the camera's position and area smoothed to whole integers.</returns>
-        public Rectangle getRectangle()
+        public override Rectangle getRectangle()
         {
             Rectangle tempRect = new Rectangle();
             // Here we round down (left and up, respectively).
-            tempRect.X = (int)Math.Floor(X - Width/2);
-            tempRect.Y = (int)Math.Floor(Y - Height/2);
+            tempRect.X = (int)Math.Floor(X);
+            tempRect.Y = (int)Math.Floor(Y);
             // Here we round up (right and down, respectively).
-            tempRect.Width = (int)Math.Ceiling(X + Width/2);
-            tempRect.Height = (int)Math.Ceiling(Y + Height/2);
+            tempRect.Width = (int)Math.Ceiling(X + Width);
+            tempRect.Height = (int)Math.Ceiling(Y + Height);
             return tempRect;
         }
 
@@ -62,11 +65,9 @@ namespace GWPlanetGame
         /// any time the camera's position or zoom factor is altered.
         /// TODO: Make this respond to window size events.
         /// </summary>
-        private void UpdateMatrix()
+        private override void UpdateMatrix()
         {
-            _matrixtransform = Matrix.CreateTranslation(new Vector3(-X, -Y, 0)) *
-                Matrix.CreateScale(new Vector3(_zoom, _zoom, 0)) *
-                Matrix.CreateTranslation(new Vector3(Width / 2, Height / 2, 0));
+            _matrixtransform = Matrix.Identity;
         }
         #endregion
 
@@ -76,7 +77,7 @@ namespace GWPlanetGame
         /// </summary>
         public float Width
         {            
-            get { return _game.GraphicsDevice.Viewport.Width; }
+            get { return _graphicsDevice.Viewport.Width; }
         }
 
         /// <summary>
@@ -84,7 +85,7 @@ namespace GWPlanetGame
         /// </summary>
         public float Height
         {
-            get { return _game.GraphicsDevice.Viewport.Height; }
+            get { return _graphicsDevice.Viewport.Height; }
         }
 
         /// <summary>
