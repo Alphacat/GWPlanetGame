@@ -41,13 +41,14 @@ namespace GWPlanetGame
             //map.MapFillPattern1();
 
             // Initialize camera
-            camera = new Camera(this);
+            camera = new Camera(this.GraphicsDevice);
             camera.Point = new Vector2(10, 10);
             base.Initialize();
         }
 
         // This is a texture we can render
         Texture2D myTexture;
+        Texture2D numbers;
 
         // Map variables
         Map map;
@@ -69,6 +70,7 @@ namespace GWPlanetGame
 
             // TODO: use this.Content to load your game content here
             myTexture = Content.Load<Texture2D>("Textures/TempTerrain");
+            numbers = Content.Load<Texture2D>("Textures/Numbers");
 
         }
 
