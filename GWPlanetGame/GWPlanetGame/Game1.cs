@@ -52,11 +52,6 @@ namespace GWPlanetGame
         // Map variables
         Map map;
         WorldCamera worldCamera;
-        // Set the coordinates to draw the sprite at
-        Vector2 spritePosition = Vector2.Zero;
-
-        // Store some information about the sprite's position
-        Vector2 spritespeed = new Vector2(50.0f, 50.0f);
 
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
