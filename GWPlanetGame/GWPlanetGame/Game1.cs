@@ -42,7 +42,13 @@ namespace GWPlanetGame
 
             // Initialize camera
             worldCamera = new WorldCamera(this.GraphicsDevice);
+
+            guiCamera = new Camera(this.GraphicsDevice);
+            
             base.Initialize();
+
+            // We need to move this down because we need LoadContent to load up numbers.
+            fpsCounter = new FPSCounter(numbers, new Rectangle(0, 0, 8, 10), Color.Yellow);
         }
 
         // This is a texture we can render
@@ -52,6 +58,10 @@ namespace GWPlanetGame
         // Map variables
         Map map;
         WorldCamera worldCamera;
+
+        // FPS counter
+        Camera guiCamera;
+        FPSCounter fpsCounter;
 
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
@@ -99,7 +109,7 @@ namespace GWPlanetGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Red);
+            GraphicsDevice.Clear(Color.Violet);
 
             // TODO: Add your drawing code here
             // Draw the sprite
@@ -109,10 +119,11 @@ namespace GWPlanetGame
 
             // Pass the spritebatch and have it draw the terrain
             map.DrawView(spriteBatch, myTexture);
-            //spriteBatch.Draw(myTexture, new Rectangle(35, 35, 2, 2), new Rectangle(20, 0, 40, 20), Color.White);
-            //spriteBatch.Draw(myTexture, new Rectangle(36, 36, 200, 50), Color.White);
             spriteBatch.End();
             
+            spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, null, null, null, null, guiCamera.Transform);
+            fpsCounter.Draw(gameTime, spriteBatch, guiCamera);
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }
