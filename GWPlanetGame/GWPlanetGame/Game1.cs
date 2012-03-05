@@ -41,8 +41,7 @@ namespace GWPlanetGame
             //map.MapFillPattern1();
 
             // Initialize camera
-            camera = new Camera(this.GraphicsDevice);
-            camera.Point = new Vector2(10, 10);
+            worldCamera = new WorldCamera(this.GraphicsDevice);
             base.Initialize();
         }
 
@@ -52,7 +51,7 @@ namespace GWPlanetGame
 
         // Map variables
         Map map;
-        Camera camera;
+        WorldCamera worldCamera;
         // Set the coordinates to draw the sprite at
         Vector2 spritePosition = Vector2.Zero;
 
@@ -111,7 +110,7 @@ namespace GWPlanetGame
             // Draw the sprite
             
             // Initialize the spriteBatch with our camera transform
-            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, null, null, null, null, camera.Transform);
+            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, null, null, null, null, worldCamera.Transform);
 
             // Pass the spritebatch and have it draw the terrain
             map.DrawView(spriteBatch, myTexture);
