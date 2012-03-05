@@ -11,16 +11,16 @@ namespace GWPlanetGame
     class Camera
     {
         // Reference to the current game's graphic device
-        private GraphicsDevice _graphicsDevice;
+        protected GraphicsDevice _graphicsDevice;
 
         // Camera's position
-        private Vector2 _point;
+        protected Vector2 _point;
 
         // Camera's transform property.
-        private Matrix _matrixtransform;
+        protected Matrix _matrixtransform;
 
         // Camera's zoom value.
-        private float _zoom;
+        protected float _zoom;
 
         #region Constructors
         /// <summary>
@@ -48,7 +48,7 @@ namespace GWPlanetGame
         /// TODO: See if there's a way to calculate this automatically based on the matrix transform.
         /// </summary>
         /// <returns>A rectangle representing the camera's position and area smoothed to whole integers.</returns>
-        public override Rectangle getRectangle()
+        public virtual Rectangle getRectangle()
         {
             Rectangle tempRect = new Rectangle();
             // Here we round down (left and up, respectively).
@@ -65,7 +65,7 @@ namespace GWPlanetGame
         /// any time the camera's position or zoom factor is altered.
         /// TODO: Make this respond to window size events.
         /// </summary>
-        private override void UpdateMatrix()
+        private virtual void UpdateMatrix()
         {
             _matrixtransform = Matrix.Identity;
         }
