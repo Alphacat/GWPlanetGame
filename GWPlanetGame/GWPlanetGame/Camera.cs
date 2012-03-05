@@ -4,9 +4,9 @@ using Microsoft.Xna.Framework;
 namespace GWPlanetGame
 {
     /// <summary>
-    /// Camera class for the game. Indicates a world position and
-    /// screen size to draw. Has some utility functions for getting/setting
-    /// the middle camera point, and others.
+    /// Camera class for the game. The camera coordinates
+    /// represent the center point that the camera is focued
+    /// on.
     /// </summary>
     class Camera
     {
@@ -49,11 +49,11 @@ namespace GWPlanetGame
         {
             Rectangle tempRect = new Rectangle();
             // Here we round down (left and up, respectively).
-            tempRect.X = (int)Math.Floor(X);
-            tempRect.Y = (int)Math.Floor(Y);
+            tempRect.X = (int)Math.Floor(X - Width/2);
+            tempRect.Y = (int)Math.Floor(Y - Height/2);
             // Here we round up (right and down, respectively).
-            tempRect.Width = (int)Math.Ceiling(Width);
-            tempRect.Height = (int)Math.Ceiling(Height);
+            tempRect.Width = (int)Math.Ceiling(X + Width/2);
+            tempRect.Height = (int)Math.Ceiling(Y + Height/2);
             return tempRect;
         }
 
@@ -122,23 +122,6 @@ namespace GWPlanetGame
         {
             get { return _point; }
             set { _point = value; UpdateMatrix(); }
-        }
-
-        /// <summary>
-        /// Property to get and set the camera's midpoint as a Vector
-        /// representing its (X,Y) coordinate pair. Intended to be a 
-        /// quick way to have the camera 'look' at an object (like the player.)
-        /// </summary>
-        public Vector2 Midpoint
-        {
-            get { return new Vector2( X + Width / 2, Y + Height / 2 ); }
-            set {
-                // Make sure we don't do this via properties, so we don't
-                // have two matrix recalculations.
-                _point.X = ( value.X - Width/2 );
-                _point.Y = ( value.Y - Height/2 );
-                UpdateMatrix();
-            }
         }
 
         /// <summary>
