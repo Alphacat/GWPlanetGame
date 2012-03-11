@@ -16,8 +16,22 @@ namespace GWPlanetGame
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+        #region Member Variables
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
+       // This is a texture we can render
+        Texture2D myTexture;
+        Texture2D numbers;
+
+        // Map variables
+        Map map;
+        WorldCamera worldCamera;
+
+        // FPS counter
+        Camera guiCamera;
+        FPSCounter fpsCounter;
+        #endregion
 
         public Game1()
         {
@@ -50,18 +64,6 @@ namespace GWPlanetGame
             // We need to move this down because we need LoadContent to load up numbers.
             fpsCounter = new FPSCounter(numbers, new Rectangle(0, 0, 8, 10), Color.Yellow);
         }
-
-        // This is a texture we can render
-        Texture2D myTexture;
-        Texture2D numbers;
-
-        // Map variables
-        Map map;
-        WorldCamera worldCamera;
-
-        // FPS counter
-        Camera guiCamera;
-        FPSCounter fpsCounter;
 
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
