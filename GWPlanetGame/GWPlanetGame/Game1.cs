@@ -51,8 +51,8 @@ namespace GWPlanetGame
             
             // Initialize random map data for testing
             map = new Map(5, 5);
-            map.MapFillRandom();
-            //map.MapFillPattern1();
+            //map.MapFillRandom();
+            map.MapFillPattern1();
 
             // Initialize camera
             worldCamera = new WorldCamera(this.GraphicsDevice);
@@ -101,6 +101,11 @@ namespace GWPlanetGame
                 this.Exit();
 
             // TODO: Add your update logic here
+            Vector2 diag = new Vector2(5,5);
+            //diag.Normalize();
+
+            worldCamera.Point += diag * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
 
             base.Update(gameTime);
         }
