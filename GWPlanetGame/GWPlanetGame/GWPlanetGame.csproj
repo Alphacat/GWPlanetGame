@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Camera.cs" />
+    <Compile Include="Chunk.cs" />
     <Compile Include="FPSCounter.cs" />
     <Compile Include="Layers.cs" />
     <Compile Include="Globals.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Tilemap.cs" />
     <Compile Include="Tiles.cs" />
     <Compile Include="WorldCamera.cs" />
   </ItemGroup>

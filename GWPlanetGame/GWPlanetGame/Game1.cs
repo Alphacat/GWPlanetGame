@@ -25,7 +25,7 @@ namespace GWPlanetGame
         Texture2D numbers;
 
         // Map variables
-        Map map;
+        Tilemap terrain;
         WorldCamera worldCamera;
 
         // FPS counter
@@ -36,6 +36,7 @@ namespace GWPlanetGame
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferMultiSampling = true;
             Content.RootDirectory = "Content";
         }
 
@@ -48,11 +49,6 @@ namespace GWPlanetGame
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            
-            // Initialize random map data for testing
-            map = new Map(5, 5);
-            //map.MapFillRandom();
-            map.MapFillPattern1();
 
             // Initialize camera
             worldCamera = new WorldCamera(this.GraphicsDevice);
@@ -63,6 +59,10 @@ namespace GWPlanetGame
 
             // We need to move this down because we need LoadContent to load up numbers.
             fpsCounter = new FPSCounter(numbers, new Rectangle(0, 0, 8, 10), Color.Yellow);
+            
+            // Initialize random map data for testing
+            terrain = new Tilemap(1000, 1000, myTexture);
+            terrain.MapFillPattern1();
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace GWPlanetGame
                 this.Exit();
 
             // TODO: Add your update logic here
-            Vector2 diag = new Vector2(5,5);
+            Vector2 diag = new Vector2(100,100);
             //diag.Normalize();
 
             worldCamera.Point += diag * (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -125,7 +125,7 @@ namespace GWPlanetGame
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, null, null, null, null, worldCamera.Transform);
 
             // Pass the spritebatch and have it draw the terrain
-            map.DrawView(spriteBatch, myTexture);
+            terrain.Draw(spriteBatch, worldCamera);
             spriteBatch.End();
             
             spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, null, null, null, null, guiCamera.Transform);
