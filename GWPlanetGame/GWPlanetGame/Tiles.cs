@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace GWPlanetGame
 {
@@ -19,5 +18,15 @@ namespace GWPlanetGame
         public const int TILE_WIDTH = 20;
         public const int TILE_HEIGHT = 20;
         Dictionary<TileID,TileData> TileInfo = new Dictionary<TileID,TileData>();
+    }
+
+    /// <summary>
+    /// Interface for a drawable tile object. This will enable us to have
+    /// tiles with special behavior (tiles that change depending on adjacent
+    /// tiles, for instance. )
+    /// </summary>
+    interface ITile
+    {
+        void Draw();
     }
 }
