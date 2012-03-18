@@ -75,13 +75,13 @@ namespace GWPlanetGame
         {
             Rectangle viewRect = worldCamera.getRectangle();
 
-            int iStart = ( viewRect.Left < 0)?(int)Math.Floor(viewRect.Left / (float)Tiles.TILE_WIDTH): viewRect.Left/Tiles.TILE_WIDTH;
-            int iEnd = (viewRect.Left < 0) ? (int)Math.Floor(viewRect.Right / (float)Tiles.TILE_WIDTH) : viewRect.Right / Tiles.TILE_WIDTH;
-            int jStart = (viewRect.Top < 0) ? (int)Math.Floor(viewRect.Top / (float)Tiles.TILE_HEIGHT) : viewRect.Top / Tiles.TILE_HEIGHT;
-            int jEnd = (viewRect.Bottom < 0) ? (int)Math.Floor(viewRect.Bottom / (float)Tiles.TILE_HEIGHT) : viewRect.Bottom / Tiles.TILE_HEIGHT;
+            int xStart = ( viewRect.Left < 0)?(int)Math.Floor(viewRect.Left / (float)Tiles.TILE_WIDTH): viewRect.Left/Tiles.TILE_WIDTH;
+            int xEnd = (viewRect.Left < 0) ? (int)Math.Floor(viewRect.Right / (float)Tiles.TILE_WIDTH) : viewRect.Right / Tiles.TILE_WIDTH;
+            int yStart = (viewRect.Top < 0) ? (int)Math.Floor(viewRect.Top / (float)Tiles.TILE_HEIGHT) : viewRect.Top / Tiles.TILE_HEIGHT;
+            int yEnd = (viewRect.Bottom < 0) ? (int)Math.Floor(viewRect.Bottom / (float)Tiles.TILE_HEIGHT) : viewRect.Bottom / Tiles.TILE_HEIGHT;
             
-            for (int i = iStart; i <= iEnd; i++)
-                for (int j = jStart; j <= jEnd; j++)
+            for (int i = xStart; i <= xEnd; i++)
+                for (int j = yStart; j <= yEnd; j++)
                 {
                     // If we're outside the bounds of the tilemap, do nothing.
                     // TODO: Consider an option to handle wrapping.
