@@ -99,8 +99,8 @@ namespace GWPlanetGame
              */
 
 
-            for (int i = iStart; i < iEnd; i++)
-                for (int j = jStart; j < jEnd; j++)
+            for (int i = iStart; i <= iEnd; i++)
+                for (int j = jStart; j <= jEnd; j++)
                 {
                     if (i < 0 || i >= _mapWidth || j < 0 || j >= _mapHeight)
                         continue;
