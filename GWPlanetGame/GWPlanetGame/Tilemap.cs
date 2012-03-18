@@ -79,29 +79,12 @@ namespace GWPlanetGame
             int iEnd = (viewRect.Left < 0) ? (int)Math.Floor(viewRect.Right / (float)Tiles.TILE_WIDTH) : viewRect.Right / Tiles.TILE_WIDTH;
             int jStart = (viewRect.Top < 0) ? (int)Math.Floor(viewRect.Top / (float)Tiles.TILE_HEIGHT) : viewRect.Top / Tiles.TILE_HEIGHT;
             int jEnd = (viewRect.Bottom < 0) ? (int)Math.Floor(viewRect.Bottom / (float)Tiles.TILE_HEIGHT) : viewRect.Bottom / Tiles.TILE_HEIGHT;
-            /*// Test to make we're not trying to draw empty space.
-            if ( iStart < 0 ) iStart = 0;
-            // If starting point is to the right of the map, then none of it will be visible.
-            else if ( iStart >= _mapWidth ) return;
-
-            int jStart = viewRect.Top / Tiles.TILE_HEIGHT;
-            if ( jStart < 0 ) jStart = 0;
-            else if ( jStart >= _mapHeight ) return;
-
-
-            int iEnd = viewRect.Right / Tiles.TILE_WIDTH;
-            if (iEnd >= _mapWidth) iEnd = _mapWidth;
-            else if (iEnd < 0) return;
-
-            int jEnd = viewRect.Bottom / Tiles.TILE_HEIGHT;
-            if (jEnd >= _mapHeight) jEnd = _mapHeight;
-            else if (jEnd < 0) return;
-             */
-
-
+            
             for (int i = iStart; i <= iEnd; i++)
                 for (int j = jStart; j <= jEnd; j++)
                 {
+                    // If we're outside the bounds of the tilemap, do nothing.
+                    // TODO: Consider an option to handle wrapping.
                     if (i < 0 || i >= _mapWidth || j < 0 || j >= _mapHeight)
                         continue;
                     _data[i, j].Draw(spriteBatch, _terrainTexture, i * Tiles.TILE_WIDTH, j * Tiles.TILE_HEIGHT);
