@@ -55,8 +55,8 @@ namespace GWPlanetGame
             tempRect.X = (int)Math.Floor(X);
             tempRect.Y = (int)Math.Floor(Y);
             // Here we round up (right and down, respectively).
-            tempRect.Width = (int)Math.Ceiling(X + Width);
-            tempRect.Height = (int)Math.Ceiling(Y + Height);
+            tempRect.Width = (int)Width + 1;
+            tempRect.Height = (int)Height + 1;
             return tempRect;
         }
 
