@@ -5,16 +5,16 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Hephaestus
 {
-    static class ViewManager
+    public static class ViewManager
     {
         static List<EditorView> _views;
 
-        static public ViewManager()
+        static ViewManager()
         {
             _views = new List<EditorView>();
         }
 
-        public EditorView GetEditorView( GraphicsDevice graphicsDevice )
+        public static EditorView GetEditorView(GraphicsDevice graphicsDevice)
         {
             EditorView view = new EditorView(graphicsDevice);
             _views.Add(view);
