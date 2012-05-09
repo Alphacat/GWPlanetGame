@@ -15,7 +15,7 @@ namespace Hephaestus.Views
 
         public void Update(float elapsedTime)
         {
-            _graphicsDevice.Clear(Microsoft.Xna.Framework.Color.Beige);
+            _graphicsDevice.Clear(Microsoft.Xna.Framework.Color.Cyan);
         }
 
         public void Draw(float elapsedTime)
