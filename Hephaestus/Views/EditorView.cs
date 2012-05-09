@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Hephaestus.Views
 {
-    class EditorView
+    public class EditorView
     {
         GraphicsDevice _graphicsDevice;
 
