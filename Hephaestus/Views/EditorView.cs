@@ -22,11 +22,11 @@ namespace Hephaestus.Views
 
         public override void Update(float elapsedTime)
         {
-            _graphicsDevice.Clear(Microsoft.Xna.Framework.Color.Cyan);
         }
 
         public override void Draw(float elapsedTime)
         {
+            _graphicsDevice.Clear(Microsoft.Xna.Framework.Color.Cyan);
         }
     }
 
@@ -39,11 +39,11 @@ namespace Hephaestus.Views
 
         public override void Update(float elapsedTime)
         {
-            _graphicsDevice.Clear(Microsoft.Xna.Framework.Color.DarkBlue);
         }
 
         public override void Draw(float elapsedTime)
         {
+            _graphicsDevice.Clear(Microsoft.Xna.Framework.Color.DarkBlue);
         }
     }
 }
