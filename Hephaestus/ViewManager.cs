@@ -7,16 +7,23 @@ namespace Hephaestus
 {
     public static class ViewManager
     {
-        static List<EditorView> _views;
+        static List<EngineView> _views;
 
         static ViewManager()
         {
-            _views = new List<EditorView>();
+            _views = new List<EngineView>();
         }
 
         public static EditorView GetEditorView(GraphicsDevice graphicsDevice)
         {
             EditorView view = new EditorView(graphicsDevice);
+            _views.Add(view);
+            return view;
+        }
+
+        public static GameView GetGameView(GraphicsDevice graphicsDevice)
+        {
+            GameView view = new GameView(graphicsDevice);
             _views.Add(view);
             return view;
         }
