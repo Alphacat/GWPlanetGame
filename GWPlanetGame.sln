@@ -9,7 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hephaestus", "Hephaestus\He
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HephaestusEditor", "HephaestusEditor\HephaestusEditor.csproj", "{5047007F-76AB-4613-BB86-FD55E10E47AC}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "HephaestusContent", "HephaestusContent\HephaestusContent.contentproj", "{D93FEA58-6167-4192-AD37-9DD4EE0A2DA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HephaestusContent", "HephaestusContent\HephaestusContent.contentproj", "{D93FEA58-6167-4192-AD37-9DD4EE0A2DA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HephaestusGame", "HephaestusGame\HephaestusGame\HephaestusGame.csproj", "{8A153BDF-B81C-415C-A2E5-5BE66B4A0A58}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "HephaestusGameContent", "HephaestusGame\HephaestusGameContent\HephaestusGameContent.contentproj", "{CC431049-20F6-4F29-BEF2-C7452C2F3B75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,16 @@ Global
 		{D93FEA58-6167-4192-AD37-9DD4EE0A2DA7}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{D93FEA58-6167-4192-AD37-9DD4EE0A2DA7}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{D93FEA58-6167-4192-AD37-9DD4EE0A2DA7}.Release|x86.ActiveCfg = Debug|Any CPU
+		{8A153BDF-B81C-415C-A2E5-5BE66B4A0A58}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{8A153BDF-B81C-415C-A2E5-5BE66B4A0A58}.Debug|x86.ActiveCfg = Debug|x86
+		{8A153BDF-B81C-415C-A2E5-5BE66B4A0A58}.Debug|x86.Build.0 = Debug|x86
+		{8A153BDF-B81C-415C-A2E5-5BE66B4A0A58}.Release|Any CPU.ActiveCfg = Release|x86
+		{8A153BDF-B81C-415C-A2E5-5BE66B4A0A58}.Release|x86.ActiveCfg = Release|x86
+		{8A153BDF-B81C-415C-A2E5-5BE66B4A0A58}.Release|x86.Build.0 = Release|x86
+		{CC431049-20F6-4F29-BEF2-C7452C2F3B75}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{CC431049-20F6-4F29-BEF2-C7452C2F3B75}.Debug|x86.ActiveCfg = Debug|x86
+		{CC431049-20F6-4F29-BEF2-C7452C2F3B75}.Release|Any CPU.ActiveCfg = Release|x86
+		{CC431049-20F6-4F29-BEF2-C7452C2F3B75}.Release|x86.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
