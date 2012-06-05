@@ -8,6 +8,8 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using Hephaestus;
+using Hephaestus.Views;
 
 namespace HephaestusGame
 {
@@ -18,6 +20,7 @@ namespace HephaestusGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        GameView _gameView;
 
         public Game1()
         {
@@ -34,7 +37,7 @@ namespace HephaestusGame
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            _gameView = new GameView(this.GraphicsDevice);
             base.Initialize();
         }
 
@@ -71,7 +74,7 @@ namespace HephaestusGame
                 this.Exit();
 
             // TODO: Add your update logic here
-
+            _gameView.Update(gameTime.ElapsedGameTime.Seconds);
             base.Update(gameTime);
         }
 
@@ -84,7 +87,7 @@ namespace HephaestusGame
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-
+            _gameView.Draw(gameTime.ElapsedGameTime.Seconds);
             base.Draw(gameTime);
         }
     }
