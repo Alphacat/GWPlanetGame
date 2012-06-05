@@ -116,6 +116,10 @@
     <Content Include="GameThumbnail.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Hephaestus\Hephaestus.csproj">
+      <Project>{A6A75F21-138F-498E-B624-78A363DE3D59}</Project>
+      <Name>Hephaestus</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HephaestusGameContent\HephaestusGameContent.contentproj">
       <Name>HephaestusGameContent</Name>
       <XnaReferenceType>Content</XnaReferenceType>
